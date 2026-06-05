@@ -236,12 +236,88 @@
 }
 
 .chapter {
+  position: relative;
+  overflow: hidden;
   max-width: var(--max-width);
   margin: 0 auto var(--space-xl);
   padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--color-border);
   animation: fade-up 0.8s ease both;
   animation-delay: calc(var(--chapter-index, 0) * 0.05s);
+}
+
+.chapter__content {
+  position: relative;
+  z-index: 1;
+}
+
+.chapter-effects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.chapter-effects--rain {
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 140, 160, 0.04),
+    rgba(80, 100, 120, 0.08)
+  );
+}
+
+.rain-drop {
+  position: absolute;
+  top: -10%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(170, 190, 210, 0.5),
+    rgba(140, 160, 180, 0.15)
+  );
+  animation: rain-fall linear infinite;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(120vh);
+  }
+}
+
+.cherry-petal {
+  position: absolute;
+  top: -8%;
+  border-radius: 50% 0 50% 0;
+  animation: petal-fall linear infinite;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10%) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(55vh) translateX(var(--petal-drift, 20px)) rotate(calc(var(--petal-spin, 360deg) * 0.5));
+  }
+  100% {
+    transform: translateY(115vh) translateX(calc(var(--petal-drift, 20px) * 1.5)) rotate(var(--petal-spin, 360deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rain-drop,
+  .cherry-petal {
+    animation: none;
+    display: none;
+  }
+
+  .chapter-effects--rain {
+    background: none;
+  }
 }
 
 .chapter:last-child {
