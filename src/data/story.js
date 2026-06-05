@@ -91,11 +91,11 @@ export const chapters = [
     era: 'June 2018',
     title: 'Only the two of us',
     tone: 'warm',
-    highlight: 'Nilagang baboy',
+    highlight: 'boiled pork soup',
     paragraphs: [
       'She went home. In June, I decided to go with her — our fourth month together. We decided to move in together, even though we were still young. A new journey: just the two of us.',
       'I booked a bus ticket. My decision was final. The day arrived. We rented a room and set up our things. Everything was perfect. We were so happy.',
-      'She cooked nilagang baboy for us. It was delicious.',
+      'She cooked boiled pork soup for us. It was delicious.',
       'Then, slowly, we felt the struggle — especially with the budget. She was the only one working; I stayed home and handled the chores. She decided to apply for a new job with a higher salary. The good news: she was hired.',
     ],
   },
